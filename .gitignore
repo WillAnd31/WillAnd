@@ -1,0 +1,4 @@
+node_modules
+www/lib
+*.DS_Store
+www/css/style.min.css

@@ -1,0 +1,37 @@
+{
+  "name": "willand",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "www/index.html",
+  "devDependencies": {
+    "autoprefixer-core": "^5.2.1",
+    "browser-sync": "^2.7.13",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-jsdoc": "^0.1.4",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-inject": "^1.3.1",
+    "gulp-jshint": "^1.11.2",
+    "gulp-minify-css": "^1.2.0",
+    "gulp-mocha": "^2.1.3",
+    "gulp-postcss": "^5.1.9",
+    "gulp-sass": "^2.0.3",
+    "gulp-webserver": "^0.9.1",
+    "jshint-stylish": "^2.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WillAnd31/willand.git"
+  },
+  "author": "Will Anderson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WillAnd31/willand/issues"
+  },
+  "homepage": "https://github.com/WillAnd31/willand#readme"
+}

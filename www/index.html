@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WillAndCo</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="icon" href="img/favicon.png">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+</head>
+<body ng-app="will">
+
+	<div class="underConstruction">
+		<p>WillAndCo is under construction</p>
+	</div>
+
+	<div class="viewContainer">
+		<div class="mainView" ui-view autoscroll="true"></div>
+	</div>
+
+<!-- Dependencies -->
+<!-- Angular -->
+<script src="lib/angular/angular.min.js"></script>
+<!-- uiRouter -->
+<script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<!-- ui.router.stateHelper -->
+<script src="lib/angular-ui-router.stateHelper/statehelper.min.js"></script>
+<!-- Angular Animate -->
+<script src="lib/angular-animate/angular-animate.min.js"></script>
+<!-- jQuery -->
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<!-- Local storage provider -->
+<script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<!-- Bootstrap -->
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- ngTouch -->
+<script src="lib/angular-touch/angular-touch.min.js"></script>
+
+<!-- App -->
+<!-- inject:js -->
+<script src="components/nav/nav.module.js"></script>
+<script src="components/nav/controllers/nav.control.js"></script>
+<script src="components/home/home.module.js"></script>
+<script src="components/home/controllers/home.control.js"></script>
+<script src="components/app/app.module.js"></script>
+<script src="components/app/app.config.js"></script>
+<!-- endinject -->
+</body>
+</html>
