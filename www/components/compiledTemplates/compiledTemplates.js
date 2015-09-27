@@ -1,0 +1,1 @@
+angular.module("will.templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("home.template.html","<div class=\"underConstruction\"><a><p>WillAndCo is under construction</p></a></div>");}]);

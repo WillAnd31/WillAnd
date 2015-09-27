@@ -14,7 +14,9 @@ function configure(stateHelperProvider){
 		.state({
 			name: 'home',
 			url: '/home',
-			templateUrl: 'components/home/templates/home.template.html',
+			templateProvider: function($templateCache){
+				return $templateCache.get('home.template.html');
+			},
 			controller: 'homeControl',
 			controllerAs: 'homeScope'
 		});

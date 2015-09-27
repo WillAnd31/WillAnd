@@ -12,10 +12,6 @@
 </head>
 <body ng-app="will">
 
-	<div class="underConstruction">
-		<a us-sref="home"><p>WillAndCo is under construction</p></a>
-	</div>
-
 	<div class="viewContainer">
 		<div class="mainView" ui-view autoscroll="true"></div>
 	</div>
@@ -40,10 +36,11 @@
 
 <!-- App -->
 <!-- inject:js -->
-<script src="components/nav/nav.module.js"></script>
-<script src="components/nav/controllers/nav.control.js"></script>
 <script src="components/home/home.module.js"></script>
 <script src="components/home/controllers/home.control.js"></script>
+<script src="components/nav/nav.module.js"></script>
+<script src="components/nav/controllers/nav.control.js"></script>
+<script src="components/compiledTemplates/compiledTemplates.js"></script>
 <script src="components/app/app.module.js"></script>
 <script src="components/app/app.config.js"></script>
 <!-- endinject -->

@@ -10,6 +10,7 @@ angular
 		'ngTouch',
 
 		// will
+		'will.templates',
 		'will.nav',
 		'will.home'
 

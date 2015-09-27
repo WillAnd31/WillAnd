@@ -5,11 +5,11 @@ var morgan = require('morgan');
 var port = 80;
 
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/www'));
+app.use(express.static(__dirname + '/dist'));
 app.listen(port);
 
 app.get('*', function(req, res, next) {
-	res.sendFile('./www/index.html', { root: __dirname });
+	res.sendFile('./dist/index.html', { root: __dirname });
 });
 
 console.log('Running on port: ' + port);
