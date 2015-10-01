@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
 	angularFilesort = require('gulp-angular-filesort'),
 	autoPrefixer = require('autoprefixer-core'),
-	browserSync = require('browser-sync').create(),
 	concatCSS = require('gulp-concat-css'),
 	concatJS = require('gulp-concat'),
 	ngmin = require('gulp-ngmin'),
@@ -14,10 +13,9 @@ var gulp = require('gulp'),
 	jsDoc = require('gulp-angular-jsdoc'),
 	minifyCSS = require('gulp-minify-css'),
 	minifyHTML = require('gulp-html-minifier'),
-	mocha = require('gulp-mocha'),
 	postCSS = require('gulp-postcss'),
 	sass = require('gulp-sass'),
-	server = require('gulp-webserver'),
+	nodemon = require('gulp-nodemon'),
 
 	// Source files
 	htmlFiles = ['www/components/**/templates/*.html', 'www/components/**/directives/**/*.html'],
@@ -30,15 +28,19 @@ var gulp = require('gulp'),
 gulp.task('lint', lintTask);
 gulp.task('css', cssTask);
 gulp.task('inject', injectTask);
-gulp.task('serve', serveTask);
-gulp.task('reload', reloadTask);
+gulp.task('server', serverTask);
 gulp.task('watch', watchTask);
 gulp.task('document', documentTask);
-gulp.task('templateCaching', templateCachingTask);
+gulp.task('templates', templateCachingTask);
 gulp.task('dist', distTask);
-gulp.task('test', testTask);
-gulp.task('default', ['css', 'inject', 'watch', 'serve']);
+gulp.task('default', ['css', 'templates', 'inject', 'watch', 'server']);
 
+function serverTask(){
+	nodemon({
+		script: 'server.js',
+		ext: 'css html js'
+	});
+}
 
 function lintTask(){
 	gulp.src(jsFiles)
@@ -57,7 +59,6 @@ function cssTask(){
 	  .pipe(postCSS([ autoPrefixer({ browsers: ['last 2 version'] }) ]))
 	  .pipe(minifyCSS())
 	  .pipe(gulp.dest('www/css/'))
-		.pipe(browserSync.stream())
 }
 
 function templateCachingTask(){
@@ -83,31 +84,15 @@ function injectTask(){
 	  .pipe(gulp.dest('./www'));
 }
 
-function serveTask(){
-    browserSync.init({
-        server: {
-            baseDir: "./www"
-        }
-    });
-}
-
-function reloadTask(){
-    browserSync.reload();
-}
-
 function watchTask(){
+	gulp.watch(htmlFiles, ['templates']);
 	gulp.watch(sassFiles, ['css']);
-	gulp.watch(watchFiles, ['inject', 'reload']);
+	gulp.watch(watchFiles, ['inject']);
 }
 
 function documentTask(){
 	gulp.src(jsFiles)
 		.pipe(jsDoc('./documentation'))
-}
-
-function testTask(){
-	gulp.src(testFiles, {read: false})
-		.pipe(mocha({reporter: 'nyan'}));
 }
 
 function distTask(){
