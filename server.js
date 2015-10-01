@@ -13,4 +13,3 @@ app.get('*', function(req, res, next) {
 });
 
 console.log('Running on port: ' + port);
-console.log(__dirname)
