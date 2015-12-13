@@ -4,3 +4,4 @@ www/lib
 www/css/style.min.css
 dist/css
 dist/js
+typings

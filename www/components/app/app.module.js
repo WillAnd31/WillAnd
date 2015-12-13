@@ -9,10 +9,13 @@ angular
 		'ui.router.stateHelper',
 		'ngTouch',
 
-		// will
+		// Modules
 		'will.templates',
 		'will.nav',
-		'will.home'
+		'will.blog',
+		'will.resume',
+		'will.contact',
+		// 'will.about'
 
 	])
 

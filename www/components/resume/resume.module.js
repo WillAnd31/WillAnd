@@ -1,7 +1,7 @@
 (function(){
 
 angular
-	.module('will.home', [])
+	.module('will.resume', [])
 	.config(configure);
 
 configure.$inject = [
@@ -12,13 +12,13 @@ function configure(stateHelperProvider){
 
 	stateHelperProvider
 		.state({
-			name: 'home',
-			url: '/home',
+			name: 'resume',
+			url: '/resume',
 			templateProvider: function($templateCache){
-				return $templateCache.get('home.template.html');
+				return $templateCache.get('resume.template.html');
 			},
-			controller: 'homeControl',
-			controllerAs: 'homeScope'
+			controller: 'resumeControl',
+			controllerAs: 'resumeScope'
 		});
 
 }

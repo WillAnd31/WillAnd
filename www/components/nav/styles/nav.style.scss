@@ -1,3 +1,47 @@
-.test {
-	color: red;
+@import '../../app/styles/colors';
+
+.nav {
+	width: 18em;
+	height: 90%;
+	border-right: 3px solid $lightGrey;
+	margin-top: 2em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: fixed;
+	
+	.imgContainer {
+		width: 10em;
+		height: 10em;
+		overflow: hidden;
+		border-radius: 100%;
+	}
+	
+	.img {
+		position: relative;
+		width: 11em;
+		height: auto;
+		cursor: pointer;
+	}
+	
+	.links {
+		text-align: center;
+		margin-top: 2em;
+		
+		p, a {
+			margin-bottom: 2em;
+			
+			&:hover {
+				cursor: pointer;
+				color: $willGreen;
+			}
+		}
+		
+		a {
+			display: block;
+			text-decoration: none;
+			color: $softBlack;
+		}
+	}
+	
 }

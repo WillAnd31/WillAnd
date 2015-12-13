@@ -6,14 +6,25 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" type="icon" href="img/favicon.png">
-	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/fontAwesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 <body ng-app="will">
+	
+	<nav class="nav">
+		<div class="imgContainer">
+			<img ui-sref="blog" class="img" src="img/headShot.jpg">
+		</div>
+		<div class="links">
+			<p ui-sref="blog" ng-class="{'currentState': state.includes('blog')}">Blog</p>
+			<p ui-sref="resume" ng-class="{'currentState': state.includes('resume')}">Resume</p>
+			<!--<p ui-sref="about" ng-class="{'currentState': state.includes('about')}">About Me</p>-->
+			<p ui-sref="contact" ng-class="{'currentState': state.includes('contact')}">Contact Info</p>
+		</div>
+	</nav>
 
 	<div class="viewContainer">
-		<div class="mainView" ui-view autoscroll="true"></div>
+		<div ui-view autoscroll="true"></div>
 	</div>
 
 <!-- Dependencies -->
@@ -29,20 +40,11 @@
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <!-- Local storage provider -->
 <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
-<!-- Bootstrap -->
-<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- ngTouch -->
 <script src="lib/angular-touch/angular-touch.min.js"></script>
 
 <!-- App -->
 <!-- inject:js -->
-<script src="components/nav/nav.module.js"></script>
-<script src="components/nav/controllers/nav.control.js"></script>
-<script src="components/home/home.module.js"></script>
-<script src="components/home/controllers/home.control.js"></script>
-<script src="components/compiledTemplates/compiledTemplates.js"></script>
-<script src="components/app/app.module.js"></script>
-<script src="components/app/app.config.js"></script>
 <!-- endinject -->
 </body>
 </html>

@@ -1,44 +1,76 @@
 var gulp = require('gulp'),
-	angularFilesort = require('gulp-angular-filesort'),
+	rename = require('gulp-rename'),
+	
+	// CSS
 	autoPrefixer = require('autoprefixer-core'),
 	concatCSS = require('gulp-concat-css'),
+	minifyCSS = require('gulp-minify-css'),
+	sass = require('gulp-sass'),
+	postCSS = require('gulp-postcss'),
+	
+	// HTML
+	inject = require('gulp-inject'),
+	minifyHTML = require('gulp-html-minifier'),
+	templateCache = require('gulp-angular-templatecache'),
+	angularFilesort = require('gulp-angular-filesort'),
+	
+	// JS
+	uglify = require('gulp-uglify'),
 	concatJS = require('gulp-concat'),
 	ngmin = require('gulp-ngmin'),
-	rename = require('gulp-rename'),
-	uglify = require('gulp-uglify'),
-	inject = require('gulp-inject'),
 	jshint = require('gulp-jshint'),
-	templateCache = require('gulp-angular-templatecache'),
 	jshintStylish = require('jshint-stylish'),
-	jsDoc = require('gulp-angular-jsdoc'),
-	minifyCSS = require('gulp-minify-css'),
-	minifyHTML = require('gulp-html-minifier'),
-	postCSS = require('gulp-postcss'),
-	sass = require('gulp-sass'),
+	
+	// Serve
 	nodemon = require('gulp-nodemon'),
+	liveReload = require('gulp-livereload'),
+	notify = require('gulp-notify'),
 
 	// Source files
-	htmlFiles = ['www/components/**/templates/*.html', 'www/components/**/directives/**/*.html'],
-	jsFiles = ['www/components/**/*.js', 'www/components/**/**/.js'],
-	watchFiles = ['www/components/**/**/*.html', 'www/components/**/*.js', 'www/components/**/**/*.js', 'www/components/**/**/**/*.js', 'www/index.html'],
-	sassFiles = ['www/components/**/styles/*.scss', 'www/components/**/directives/**/*.scss'],
-	testFiles = ['test/**/*.js'];
+	htmlFiles = [
+		'www/components/**/templates/*.html', 
+		'www/components/**/directives/**/*.html'
+	],
+	jsFiles = [
+		'www/components/**/*.js', 
+		'www/components/**/**/.js'
+	],
+	watchFiles = [
+		'www/components/**/**/*.html', 
+		'www/components/**/*.js', 
+		'www/components/**/**/*.js', 
+		'www/components/**/**/**/*.js', 
+		'www/index.html'
+	],
+	sassFiles = [
+		'www/components/**/styles/*.scss', 
+		'www/components/**/directives/**/*.scss'
+	],
+	testFiles = [
+		'test/**/*.js'
+	];
 
 //Tasks
 gulp.task('lint', lintTask);
 gulp.task('css', cssTask);
 gulp.task('inject', injectTask);
-gulp.task('server', serverTask);
 gulp.task('watch', watchTask);
-gulp.task('document', documentTask);
 gulp.task('templates', templateCachingTask);
+gulp.task('serve', serveTask);
 gulp.task('dist', distTask);
-gulp.task('default', ['css', 'templates', 'inject', 'watch', 'server']);
+gulp.task('build', ['css', 'templates', 'inject']);
+gulp.task('default', ['build', 'watch', 'serve']);
 
-function serverTask(){
+function serveTask(){
 	nodemon({
 		script: 'server.js',
 		ext: 'css html js'
+	}).on('start', function(){
+		setTimeout(function(){
+			gulp.src('./server.js')
+				.pipe(liveReload())
+				.pipe(notify('Reloading page...'));
+		}, 500);
 	});
 }
 
@@ -88,11 +120,6 @@ function watchTask(){
 	gulp.watch(htmlFiles, ['templates']);
 	gulp.watch(sassFiles, ['css']);
 	gulp.watch(watchFiles, ['inject']);
-}
-
-function documentTask(){
-	gulp.src(jsFiles)
-		.pipe(jsDoc('./documentation'))
 }
 
 function distTask(){

@@ -1,0 +1,13 @@
+.easeIn.ng-enter, .easeIn.ng-leave {
+	transition: 300ms;
+}
+
+.easeIn.ng-enter,
+.easeIn.ng-leave.ng-leave-active {
+	opacity: 0;
+}
+
+.easeIn.ng-leave,
+.easeIn.ng-enter.ng-enter-active {
+	opacity: 1;
+}

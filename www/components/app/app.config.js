@@ -14,8 +14,8 @@ configure.$inject = [
 
 function configure($compileProvider, $stateProvider, $locationProvider, $urlRouterProvider, $translateProvider, $httpProvider){
 
-	$urlRouterProvider.when('', 'home');
-	$urlRouterProvider.otherwise('home')
+	$urlRouterProvider.when('', 'blog');
+	$urlRouterProvider.otherwise('blog')
 	$locationProvider.html5Mode(true);
 
 }

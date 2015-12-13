@@ -8,7 +8,6 @@
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-angular-filesort": "^1.1.1",
-    "gulp-angular-jsdoc": "^0.1.4",
     "gulp-angular-templatecache": "^1.7.0",
     "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.2.0",
@@ -26,8 +25,9 @@
     "morgan": "^1.6.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "build": "gulp build",
+    "start": "gulp",
+    "dist": "gulp dist"
   },
   "repository": {
     "type": "git",
