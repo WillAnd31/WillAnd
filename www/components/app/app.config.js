@@ -9,10 +9,13 @@ configure.$inject = [
 	'$stateProvider', 
 	'$locationProvider',
 	'$urlRouterProvider',
-	'$httpProvider'
+	'$httpProvider',
+	'$analyticsProvider'
 ];
 
-function configure($compileProvider, $stateProvider, $locationProvider, $urlRouterProvider, $translateProvider, $httpProvider){
+function configure($compileProvider, $stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, $analyticsProvider){
+	
+	$analyticsProvider.virtualPageviews(true);
 
 	$urlRouterProvider.when('', 'blog');
 	$urlRouterProvider.otherwise('blog')

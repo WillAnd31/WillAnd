@@ -8,6 +8,8 @@ angular
 		'ui.router',
 		'ui.router.stateHelper',
 		'ngTouch',
+		'angulartics',
+		'angulartics.google.analytics',
 
 		// Modules
 		'will.templates',
