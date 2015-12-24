@@ -1,4 +1,5 @@
 @import '../../app/styles/colors';
+@import '../../app/styles/dimensions';
 
 .contact {
 	display: flex;
@@ -12,6 +13,10 @@
 	.info {
 		p, a {
 			display: inline-block;
+            
+            @media (max-width: $smallScreen) {
+                display: block;
+            }
 		}
 		
 		p {

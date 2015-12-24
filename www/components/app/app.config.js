@@ -17,8 +17,8 @@ function configure($compileProvider, $stateProvider, $locationProvider, $urlRout
 	
 	$analyticsProvider.virtualPageviews(true);
 
-	$urlRouterProvider.when('', 'blog');
-	$urlRouterProvider.otherwise('blog')
+	$urlRouterProvider.when('', 'resume');
+	$urlRouterProvider.otherwise('resume')
 	$locationProvider.html5Mode(true);
 
 }

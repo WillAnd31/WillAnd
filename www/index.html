@@ -22,9 +22,17 @@
 			<p ui-sref="contact" ng-class="{'currentState': state.includes('contact')}">Contact Info</p>
 		</div>
 	</nav>
+    
+    <div class="smallNav showOnSmall">
+        <p class="bold" ui-sref="blog" ng-class="{'hideState': state.includes('blog')}">Blog</p>
+        <p class="bold" ui-sref="contact" ng-class="{'hideState': !state.includes('blog')}">Contact Info</p>
+        <img ui-sref="resume" src="img/favicon.png">
+        <p class="bold" ui-sref="resume" ng-class="{'hideState': state.includes('resume')}">Resume</p>
+        <p class="bold" ui-sref="contact" ng-class="{'hideState': !state.includes('resume')}">Contact Info</p>
+    </div>
 
 	<div class="viewContainer">
-		<div ui-view autoscroll="true"></div>
+		<div ui-view autoscroll="false"></div>
 	</div>
 
 <!-- Dependencies -->
