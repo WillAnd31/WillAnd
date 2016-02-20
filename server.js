@@ -5,11 +5,21 @@ var http = require('http');
 var https = require('https');
 var fs = require('fs');
 
-var keyPem = fs.readFileSync('../../../letsencrypt/etc/live/willand.co/privkey.pem', 'utf8');
-var certPem = fs.readFileSync('../../../../letsencrypt/etc/live/willand.co/cert.pem', 'utf8');
+var keyPem;
+var certPem;
 
-var httpPort = 80;
-var httpsPort = 443;
+var httpPort;
+var httpsPort;
+
+if (process.env.NODE_ENV === 'server') {
+    keyPem = fs.readFileSync('../../../letsencrypt/etc/live/willand.co/privkey.pem', 'utf8');
+    certPem = fs.readFileSync('../../../../letsencrypt/etc/live/willand.co/cert.pem', 'utf8');
+    httpPort = 80;
+    httpsPort = 443;
+} else {
+    httpPort = 8888;
+    httpsPort = 8890;
+}
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/www'));
