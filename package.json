@@ -38,5 +38,11 @@
   "bugs": {
     "url": "https://github.com/WillAnd31/willand/issues"
   },
-  "homepage": "https://github.com/WillAnd31/willand#readme"
+  "homepage": "https://github.com/WillAnd31/willand#readme",
+  "dependencies": {
+    "letsencrypt": "~1.4.3",
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "https": "~1.0.0"
+  }
 }

@@ -1,53 +1,28 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var app = express();
 var morgan = require('morgan');
-var port = 80;
+var http = require('http');
+var https = require('https');
+var fs = require('fs');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+var keyPem = fs.readFileSync('../../../letsencrypt/etc/live/willand.co/privkey.pem', 'utf8');
+var certPem = fs.readFileSync('../../../../letsencrypt/etc/live/willand.co/cert.pem', 'utf8');
+
+var httpPort = 80;
+var httpsPort = 443;
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/www'));
-app.listen(port);
+
+http.createServer(app).listen(httpPort);
+https.createServer({
+    key: keyPem,
+    cert: certPem
+}, app).listen(httpsPort);
 
 app.get('*', function(req, res, next) {
     res.sendFile('./www/index.html', { root: __dirname });
 });
 
-app.post('/test', function (req, res, next) {
-    console.log(req.body);
-    res.send(req.body);
-});
-
-app.get('/v1/oauth/authorize', function (req, res, next) {
-    console.log('*********************GET: ', req.body);
-    res.send(req.body);
-});
-
-app.get('/v1/oauth/token', function (req, res, next) {
-    console.log('*********************GET: ', req.body);
-    res.send(req.body);
-});
-
-app.get('/v1/oauth/me', function (req, res, next) {
-    console.log('*********************GET: ', req.body);
-    res.send(req.body);
-});
-
-app.post('/v1/oauth/authorize', function (req, res, next) {
-    console.log('*********************POST: ', req.body);
-    res.send(req.body);
-});
-
-app.post('/v1/oauth/token', function (req, res, next) {
-    console.log('*********************POST: ', req.body);
-    res.send(req.body);
-});
-
-app.post('/v1/oauth/me', function (req, res, next) {
-    console.log('*********************POST: ', req.body);
-    res.send(req.body);
-});
-
-console.log('Running on port: ' + port);
+console.log('Running on http port: ' + httpPort);
+console.log('Running on https port: ' + httpsPort);
