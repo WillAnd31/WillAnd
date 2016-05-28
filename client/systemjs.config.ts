@@ -8,7 +8,8 @@ declare let System: any;
 		'rxjs': 'lib/rxjs',
 		'ng2-translate': 'lib/ng2-translate',
 		'symbol-observable': 'lib/symbol-observable',
-		'lodash': 'lib/lodash'
+		'lodash': 'lib/lodash',
+		'angulartics2': 'lib/angulartics2'
 	};
 
 	// packages tells the System loader how to load when no filename and/or no extension
@@ -29,6 +30,10 @@ declare let System: any;
 			defaultExtension: 'js'
 		},
 		'lodash': {
+			main: 'index.js',
+			defaultExtension: 'js'
+		},
+		'angulartics2': {
 			main: 'index.js',
 			defaultExtension: 'js'
 		}

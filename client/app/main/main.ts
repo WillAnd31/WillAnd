@@ -11,6 +11,10 @@ import {LocationStrategy, HashLocationStrategy, Location, CORE_DIRECTIVES} from 
 import {Http, HTTP_PROVIDERS} from '@angular/http';
 import {TranslateService, TranslatePipe, TranslateLoader, TranslateStaticLoader} from 'ng2-translate/ng2-translate';
 
+// Analytics
+import {Angulartics2GoogleAnalytics} from 'angulartics2/src/providers/angulartics2-google-analytics';
+import {Angulartics2, Angulartics2On} from 'angulartics2';
+
 // WillAnd
 import {ResumeComponent} from './../resume/resume.component';
 
@@ -20,7 +24,8 @@ import {ResumeComponent} from './../resume/resume.component';
 	styleUrls: [root + 'css'],
 	directives: [
 		ROUTER_DIRECTIVES,
-		CORE_DIRECTIVES
+		CORE_DIRECTIVES,
+		Angulartics2On
 	],
 	providers: [
 		HTTP_PROVIDERS,
@@ -28,6 +33,7 @@ import {ResumeComponent} from './../resume/resume.component';
 			useFactory: (http: Http) => new TranslateStaticLoader(http, 'lang', '.json'),
 			deps: [Http]
 		}),
+		Angulartics2GoogleAnalytics,
 		TranslateService,
 		ROUTER_PROVIDERS
 	],
@@ -51,7 +57,9 @@ export class WillAnd {
 	constructor (
 		private translate: TranslateService,
 		private _router: Router,
-		private _location: Location
+		private _location: Location,
+		private angulartics2: Angulartics2,
+		private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics
 	) {
 		let userLang = navigator.language.split('-')[0];
 		this.currentLang = (_.findIndex(this.supportedLangs, {iso: userLang}) > -1) ? _.find(this.supportedLangs, {iso: userLang}) : _.find(this.supportedLangs, {iso: 'en'});
@@ -66,6 +74,7 @@ export class WillAnd {
 
 bootstrap(WillAnd, [
 	ROUTER_PROVIDERS,
+	Angulartics2,
 	provide(LocationStrategy, {
 		useClass: HashLocationStrategy
 	})
