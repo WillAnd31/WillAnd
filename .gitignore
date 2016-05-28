@@ -1,7 +1,6 @@
 node_modules
-www/lib
 *.DS_Store
-www/css/style.min.css
-dist/css
-dist/js
-typings
+**/typings
+dist/*
+*.js
+*.js.map

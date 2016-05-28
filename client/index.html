@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>WillAnd</title>
+	<base href="/" />
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="icon" href="images/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="/app/styles/app.css">
+	<script src="https://use.fontawesome.com/2d1c68d03e.js"></script>
+
+	<!-- Polyfills/Shims -->
+	<script src="/lib/es6-shim/es6-shim.min.js"></script>
+
+	<script src="/lib/zone.js/dist/zone.js"></script>
+	<script src="/lib/reflect-metadata/Reflect.js"></script>
+	<script src="/lib/systemjs/dist/system.src.js"></script>
+	<script src="/lib/lodash/lodash.js"></script>
+
+	<!-- Load App -->
+	<script src="/app/systemjs.config.js"></script>
+	<script>
+		System.import('app').catch(function(err){
+			console.error(err);
+		});
+	</script>
+</head>
+
+<body>
+	<willand class="willand full">
+		<div class="loading center full column">
+			<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+			<h2>Loading</h2>
+		</div>
+	</willand>
+</body>
+
+</html>
+
