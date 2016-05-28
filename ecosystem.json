@@ -10,12 +10,13 @@
 	],
 	"deploy": {
 		"staging": {
+			"key": "./space-rocks.pem",
 			"user": "node",
 			"host": "52.36.86.214",
 			"repo": "git@github.com:WillAnd31/WillAnd.git",
-			"ref"  : "origin/master",
-			"path" : "/home/ubuntu/WillAnd",
-			"post-deploy" : "npm install && cd ./client/ && typings install && cd ./../server/ && typings install && cd ./../ && pm2 startOrRestart ecosystem.json --env staging"
+			"ref": "origin/master",
+			"path": "/home/ubuntu/WillAnd",
+			"post-deploy": "npm install && cd ./client/ && typings install && cd ./../server/ && typings install && cd ./../ && pm2 startOrRestart ecosystem.json --env staging"
 		}
 	}
 }
