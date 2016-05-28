@@ -32,10 +32,12 @@
     "es6-shim": "^0.35.0",
     "express": "^4.13.4",
     "gulp-concat": "^2.6.0",
+    "letsencrypt-express": "^1.1.5",
     "lodash": "^4.11.1",
     "ng2-translate": "^2.1.0",
     "reflect-metadata": "^0.1.3",
     "rxjs": "^5.0.0-beta.7",
+    "spdy": "^3.3.3",
     "systemjs": "^0.19.26",
     "zone.js": "^0.6.12"
   },

@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 let root: string = 'app/app/main/main.';
 
 // Angular
-import {Component, provide} from '@angular/core';
+import {Component, provide, enableProdMode} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Routes, Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router} from '@angular/router';
 import {LocationStrategy, HashLocationStrategy, Location, CORE_DIRECTIVES} from '@angular/common';
@@ -72,6 +72,7 @@ export class WillAnd {
 	}
 }
 
+enableProdMode();
 bootstrap(WillAnd, [
 	ROUTER_PROVIDERS,
 	Angulartics2,
