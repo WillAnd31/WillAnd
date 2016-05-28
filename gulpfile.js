@@ -1,163 +1,122 @@
-var gulp = require('gulp'),
-	rename = require('gulp-rename'),
-	
-	// CSS
-	autoPrefixer = require('autoprefixer-core'),
-	concatCSS = require('gulp-concat-css'),
-	minifyCSS = require('gulp-minify-css'),
-	sass = require('gulp-sass'),
-	postCSS = require('gulp-postcss'),
-	
-	// HTML
-	inject = require('gulp-inject'),
-	minifyHTML = require('gulp-html-minifier'),
-	templateCache = require('gulp-angular-templatecache'),
-	angularFilesort = require('gulp-angular-filesort'),
-	
-	// JS
-	uglify = require('gulp-uglify'),
-	concatJS = require('gulp-concat'),
-	ngmin = require('gulp-ngmin'),
-	jshint = require('gulp-jshint'),
-	jshintStylish = require('jshint-stylish'),
-	
-	// Serve
-	nodemon = require('gulp-nodemon'),
-	liveReload = require('gulp-livereload'),
-	notify = require('gulp-notify'),
+var gulp = require('gulp');
+var liveReload = require('gulp-livereload');
+var shell = require('gulp-shell');
+var nodemon = require('gulp-nodemon');
+var sourcemaps = require('gulp-sourcemaps');
+var ts = require('gulp-typescript');
+var minifyJS = require('gulp-minify');
+var minifyHTML = require('gulp-htmlmin');
+var minifyCSS = require('gulp-clean-css');
+var sass = require('gulp-sass');
+var autoPrefixer = require('gulp-autoprefixer');
 
-	// Source files
-	htmlFiles = [
-		'www/components/**/templates/*.html', 
-		'www/components/**/directives/**/*.html'
-	],
-	jsFiles = [
-		'www/components/**/*.js', 
-		'www/components/**/**/.js'
-	],
-	watchFiles = [
-		'www/components/**/**/*.html', 
-		'www/components/**/*.js', 
-		'www/components/**/**/*.js', 
-		'www/components/**/**/**/*.js', 
-		'www/index.html'
-	],
-	sassFiles = [
-		'www/components/**/styles/*.scss', 
-		'www/components/**/directives/**/*.scss'
-	],
-	testFiles = [
-		'test/**/*.js'
-	];
+var serverTsFiles = [
+	'./server/**/*.ts',
+	'!./server/typings/main/**/**/*.d.ts',
+	'!./server/typings/main.d.ts'
+];
+var clientTsFiles = [
+	'./client/**/*.ts',
+	'./client/**/**/*.ts',
+	'./client/**/**/**/*.ts',
+	'!./client/typings/main/**/**/*.d.ts',
+	'!./client/typings/main.d.ts'
+];
+var scssFiles = [
+	'./client/**/*.scss',
+	'./client/**/**/*.scss',
+	'./client/**/**/**/*.scss'
+];
+var imageFiles = [
+	'./client/images/*'
+];
+var htmlFiles = [
+	'./client/**/**/**/*.html',
+	'./client/**/**/*.html',
+	'./client/**/*.html',
+	'./client/*.html'
+];
 
-//Tasks
-gulp.task('lint', lintTask);
-gulp.task('css', cssTask);
-gulp.task('inject', injectTask);
-gulp.task('watch', watchTask);
-gulp.task('templates', templateCachingTask);
 gulp.task('serve', serveTask);
-gulp.task('dist', distTask);
-gulp.task('build', ['css', 'templates', 'inject']);
-gulp.task('default', ['build', 'watch', 'serve']);
+gulp.task('watch', watchTask);
+gulp.task('css', cssTask);
+gulp.task('html', htmlTask);
+gulp.task('clean', shell.task(['rm -rf dist']));
+gulp.task('build:server', buildServerTask);
+gulp.task('build:client', buildClientTask);
+gulp.task('build', ['clean', 'build:server', 'build:client', 'css', 'html']);
+gulp.task('dev', ['build', 'watch', 'serve']);
+gulp.task('default', ['build']);
 
-function serveTask(){
+function serveTask () {
+	liveReload.listen();
 	nodemon({
-		script: 'server.js',
+		script: './server/server.js',
 		ext: 'css html js'
-	}).on('start', function(){
-		setTimeout(function(){
-			gulp.src('./server.js')
-				.pipe(liveReload())
-				.pipe(notify('Reloading page...'));
+	})
+	.on('start', function () {
+		setTimeout(function () {
+			gulp.src('./server/server.js')
+				.pipe(liveReload());
 		}, 500);
 	});
 }
 
-function lintTask(){
-	gulp.src(jsFiles)
-		.pipe(jshint())
-		.pipe(jshint.reporter(jshintStylish))
+function watchTask () {
+	gulp.watch(htmlFiles, ['html']);
+	gulp.watch(scssFiles, ['css']);
+	gulp.watch(clientTsFiles, ['build:client']);
 }
 
-//Converts SASS to CSS, concatenats, autoprefixes, and minifies all css files
-function cssTask(){
-	gulp.src(sassFiles)
-	  .pipe(sass({
-	  	style: 'compressed'
-	  }))
-	  .on('error', console.error.bind(console))
-	  .pipe(concatCSS('style.min.css'))
-	  .pipe(postCSS([ autoPrefixer({ browsers: ['last 2 version'] }) ]))
-	  .pipe(minifyCSS())
-	  .pipe(gulp.dest('www/css/'))
-}
-
-function templateCachingTask(){
-	gulp.src(htmlFiles)
-		.pipe(minifyHTML({collapseWhitespace: true}))
-		.pipe(templateCache('compiledTemplates.js', {
-			standalone: true,
-			module: 'will.templates',
-			base: function(baseInfo){
-				return baseInfo.path.split('').slice(baseInfo.path.split('').lastIndexOf('/') + 1, baseInfo.path.length).join('');
-			}
-		}))
-		.pipe(gulp.dest('www/components/compiledTemplates'));
-}
-
-function injectTask(){
-	gulp.src('www/index.html')
-	  	.pipe(inject(
-	  		gulp.src(jsFiles, {read: true})
-	  		.pipe(angularFilesort()), {
-	  			relative: true
-	  		}))
-	  .pipe(gulp.dest('./www'));
-}
-
-function watchTask(){
-	gulp.watch(htmlFiles, ['templates']);
-	gulp.watch(sassFiles, ['css']);
-	gulp.watch(watchFiles, ['inject']);
-}
-
-function distTask(){
-	gulp.src(htmlFiles)
-		.pipe(minifyHTML({collapseWhitespace: true}))
-		.pipe(templateCache('compiledTemplates.js', {
-			standalone: true,
-			module: 'will.templates',
-			base: function(baseInfo){
-				return baseInfo.path.split('').slice(baseInfo.path.split('').lastIndexOf('/') + 1, baseInfo.path.length).join('');
-			}
-		}))
-		.pipe(gulp.dest('www/components/compiledTemplates'));
-
-	gulp.src(['www/components/app/app.module.js', 'www/components/*.run.js', 'www/components/*.constants.js', 'www/components/*.module.js', 'www/components/**/**/*.js', 'www/components/**/**/**/*.js'])
-		.pipe(concatJS('willand.js'))
-		.pipe(ngmin())
-		.pipe(rename({suffix: '.min'}))
-		.pipe(uglify({
-			mangle: false
-		}))
-		.pipe(gulp.dest('dist/js/will/'))
-
-	gulp.src(['www/lib/angular/angular.min.js', 'www/lib/angular-ui-router/release/angular-ui-router.min.js', 'www/lib/angular-ui-router.stateHelper/statehelper.min.js', 'www/lib/angular-animate/angular-animate.min.js', 'www/lib/jquery/dist/jquery.min.js', 'www/lib/angular-local-storage/dist/angular-local-storage.min.js', 'www/lib/bootstrap/dist/js/bootstrap.min.js', 'www/lib/angular-touch/angular-touch.min.js'])
-		.pipe(concatJS('dependencies.js'))
-		.pipe(rename({suffix: '.min'}))
-		.pipe(uglify({
-			mangle: false
-		}))
-		.pipe(gulp.dest('dist/js/dependencies/'))
-
-	gulp.src(sassFiles)
-		.pipe(sass({
-			style: 'compressed'
-		}))
+function cssTask () {
+	gulp.src(scssFiles)
+		.pipe(sass({outputStyle: 'compressed'}))
 		.on('error', console.error.bind(console))
-		.pipe(concatCSS('style.min.css'))
-		.pipe(postCSS([ autoPrefixer({ browsers: ['last 2 version'] }) ]))
+		.pipe(autoPrefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
 		.pipe(minifyCSS())
-		.pipe(gulp.dest('dist/css/'))
+		.pipe(gulp.dest('./dist/'));
+}
+
+function imagesTask () {
+	gulp.src(imageFiles)
+		.pipe(imagemin())
+		.pipe(gulp.dest('dist/images'));
+}
+
+function buildServerTask () {
+	var tsProject = ts.createProject('./server/tsconfig.json');
+	return gulp.src(serverTsFiles)
+		.pipe(sourcemaps.init())
+		.pipe(ts(tsProject))
+		.js
+		.pipe(sourcemaps.write(''))
+		.pipe(gulp.dest('./server/'));
+}
+
+function htmlTask () {
+	return gulp.src(htmlFiles)
+		// .pipe(minifyHTML({
+		// 	collapseWhitespace: true,
+		// 	minifyJS: true,
+		// 	caseSensitive: true,
+		// 	removeComments: true
+		// }))
+		.pipe(gulp.dest('./dist/'));
+}
+
+function buildClientTask () {
+	var tsProject = ts.createProject('./client/tsconfig.json');
+	return gulp.src(clientTsFiles)
+		.pipe(sourcemaps.init())
+		.pipe(ts(tsProject))
+		.js
+		.pipe(minifyJS({
+			src: '-debug.js',
+			min: '.js'
+		}))
+		.pipe(sourcemaps.write(''))
+		.pipe(gulp.dest('./dist/'));
 }
