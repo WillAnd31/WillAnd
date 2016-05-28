@@ -1,5 +1,155 @@
 @import './../../styles/utils';
 
 .willand-resume {
-	color: red;
+	padding-top: 3em;
+
+	.intro {
+		width: 50%;
+		height: auto;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		.img-container {
+			height: 10em;
+			width: 10em;
+			min-width: 10em;
+			border-radius: 100%;
+			overflow: hidden;
+
+			img {
+				height: 15em;
+				position: relative;
+				left: -0.3em;
+			}
+		}
+
+		.contact-info {
+			h1 {
+				color: $darkish;
+				margin: 0;
+				font-size: 3em;
+				text-align: center;
+			}
+
+			p {
+				margin: 0.5em 0 0.5em;
+				text-align: center;
+			}
+
+			.social-links {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+	}
+
+	.resume-section {
+		width: 100%;
+		padding: 0;
+		margin-top: 2em;
+		display: flex;
+		height: auto;
+		justify-content: flex-start;
+		align-items: center;
+
+		@media (max-width: $mediumScreen) {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&:last-child {
+			margin-bottom: 3em;
+		}
+
+		.resume-section-title {
+			margin-right: 1em;
+			min-width: 5.5em;
+			width: 20%;
+			text-align: right;
+
+			@media (max-width: $mediumScreen) {
+				border-bottom: 4px solid $darkish;
+				width: 90%;
+				margin: 0;
+				text-align: center;
+				padding-bottom: 0.2em;
+			}
+		}
+
+		.resume-section-content {
+			border-left: 4px solid $darkish;
+			width: 80%;
+
+			@media (max-width: $mediumScreen) {
+				border: none;
+				width: 100%;
+			}
+
+			ul {
+				list-style: none;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				width: 90%;
+				margin-top: 0;
+
+				@media (max-width: $mediumScreen) {
+					width: 100%;
+					border: 0;
+					padding: 0 1em;
+					justify-content: center;
+				}
+
+				li {
+					margin: 1em 2em 0;
+					cursor: pointer;
+					transition: 300ms;
+					transform: scale(0.9);
+
+					&.hideOnSmall {
+						@media (max-width: $mediumScreen) {
+							display: none !important;
+						}
+					}
+
+					.img-container {
+						height: 4em;
+						display: flex;
+						justify-content: center;
+						overflow: hidden;
+
+						&.rounded {
+							border-radius: 5px;
+						}
+
+						img {
+							height: inherit;
+						}
+					}
+
+					p {
+						margin: 0;
+						transition: 500ms;
+						text-align: center;
+						opacity: 0;
+
+						@media (max-width: $mediumScreen) {
+							opacity: 1;
+						}
+					}
+
+					&:hover {
+						transform: scale(1);
+						p {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
 }

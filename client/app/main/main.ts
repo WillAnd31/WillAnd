@@ -20,7 +20,8 @@ import {ResumeComponent} from './../resume/resume.component';
 
 @Component({
 	selector: 'willand',
-	templateUrl: root + 'html',
+	// templateUrl: root + 'html',
+	template: `<router-outlet></router-outlet>`,
 	styleUrls: [root + 'css'],
 	directives: [
 		ROUTER_DIRECTIVES,

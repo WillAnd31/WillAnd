@@ -1,5 +1,10 @@
 import {Component} from '@angular/core';
 import {TranslatePipe} from 'ng2-translate/ng2-translate';
+// import {SkillDirective} from './../directives/skill.directive';
+import {Skills} from './../lists/skills.list';
+import {Skill} from './../models/skill.model';
+import {Experiences} from './../lists/experiences.list';
+import {Experience} from './../models/experience.model';
 
 let rootPath: string = 'app/app/resume/resume.component.';
 
@@ -7,6 +12,20 @@ let rootPath: string = 'app/app/resume/resume.component.';
 	selector: 'willand-resume',
 	templateUrl: rootPath + 'html',
 	styleUrls: [rootPath + 'css'],
+	// directives: [SkillDirective],
 	pipes: [TranslatePipe]
 })
-export class ResumeComponent {}
+export class ResumeComponent {
+	public skills: Skill[];
+	public experiences: Experience[];
+
+	constructor () {
+		this.skills = Skills;
+		this.experiences = Experiences;
+		console.log(Experiences);
+	}
+
+	public open (url: string) {
+		window.open(url, '_blank');
+	}
+}

@@ -1,3 +1,94 @@
-<div class="willand-resume">
-	{{'RESUME' | translate}}
+<div class="willand-resume center column">
+	<div class="intro row">
+		<div class="img-container">
+			<img src="/images/headshot.jpg" alt="Me">
+		</div>
+		<div class="contact-info">
+			<h1>{{'WILL_ANDERSON' | translate}}</h1>
+			<p><a href="mailto:will@willand.co">will@willand.co</a></p>
+			<div class="social-links">
+				<a href="https://github.com/willand31" target="_blank">Github</a>
+				<a href="https://twitter.com/willand31" target="_blank">Twitter</a>
+				<a href="https://www.linkedin.com/in/will-anderson-95515586
+	" target="_blank">LinkedIn</a>
+			</div>
+		</div>
+	</div>
+	<div class="skills resume-section">
+		<h2 class="resume-section-title">Skills</h2>
+		<div class="resume-section-content">
+			<ul>
+				<li *ngFor="let skill of skills" (click)="open(skill?.link)" [ngClass]="{hideOnSmall: skill?.hideOnSmall}">
+					<div class="img-container">
+						<img src="{{skill?.imgUrl}}" alt="{{skill?.name | translate}}">
+					</div>
+					<p>{{skill?.name | translate}}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="experience resume-section">
+		<h2 class="resume-section-title">Experience</h2>
+		<div class="resume-section-content">
+			<ul>
+				<li *ngFor="let job of experiences" (click)="open(job?.link)">
+					<p>{{job?.title}}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="education resume-section">
+		<h2 class="resume-section-title">Education</h2>
+		<div class="resume-section-content">
+			<ul>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+			</ul>
+		</div>
+	</div>
+	<div class="interests resume-section">
+		<h2 class="resume-section-title">Interests</h2>
+		<div class="resume-section-content">
+			<ul>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+			</ul>
+		</div>
+	</div>
+	<div class="awards resume-section">
+		<h2 class="resume-section-title">Awards</h2>
+		<div class="resume-section-content">
+			<ul>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+				<li>somethins</li>
+			</ul>
+		</div>
+	</div>
 </div>

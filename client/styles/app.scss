@@ -6,6 +6,8 @@ html, body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Open Sans', sans-serif;
+	background-image: url('/images/fabric.png');
+	color: $softBlack;
 }
 
 div, header, nav, ul, li {
@@ -15,6 +17,17 @@ div, header, nav, ul, li {
 .full {
 	height: 100%;
 	width: 100%;
+}
+
+a {
+	color: $lightish;
+	font-weight: bold;
+	transition: 500ms;
+
+	&:hover {
+		color: $light;
+		font-weight: lighter;
+	}
 }
 
 input[type='text'], input[type='email'], input[type='password'] {

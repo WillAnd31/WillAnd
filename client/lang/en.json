@@ -1,4 +1,19 @@
 {
 	"WILL_ANDERSON": "Will Anderson",
-	"RESUME": "Resume"
+	"RESUME": "Resume",
+	"ANGULAR2": "Angular2",
+	"ANGULAR1": "AngularJS",
+	"TYPESCRIPT": "TypeScript",
+	"JAVASCRIPT": "JavaScript",
+	"NODEJS": "NodeJS",
+	"JAVA": "Java",
+	"CPP": "C++",
+	"SWIFT": "Swift",
+	"IONIC": "Ionic Applications",
+	"MONGODB": "MongoDB",
+	"MYSQL": "MySQL",
+	"GULP": "GulpJS",
+	"WORDPRESS": "WordPress",
+	"PAYMENT_PROCESSORS": "Payment Processers",
+	"LEARNER": "Fast Learner"
 }
