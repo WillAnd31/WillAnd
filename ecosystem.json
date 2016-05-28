@@ -10,7 +10,6 @@
 	],
 	"deploy": {
 		"staging": {
-			"key": "./space-rocks.pem",
 			"user": "node",
 			"host": "52.36.86.214",
 			"repo": "git@github.com:WillAnd31/WillAnd.git",
