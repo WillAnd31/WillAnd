@@ -3,9 +3,19 @@
 		{
 			"name": "willand",
 			"script": "server/server.js",
-			"env": {
-				"NODE_ENV": "dev"
+			"env_staging": {
+				"NODE_ENV": "staging"
 			}
 		}
-	]
+	],
+	"deploy": {
+		"staging": {
+			"user": "node",
+			"host": "52.36.86.214",
+			"repo": "git@github.com:WillAnd31/WillAnd.git",
+			"ref"  : "origin/master",
+			"path" : "/home/ubuntu/WillAnd",
+			"post-deploy" : "npm install && cd ./client/ && typings install && cd ./../server/ && typings install && cd ./../ && pm2 startOrRestart ecosystem.json --env staging"
+		}
+	}
 }
