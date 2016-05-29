@@ -67,6 +67,7 @@ export class WillAnd {
 		translate.setDefaultLang('en');
 		translate.use(this.currentLang.iso);
 		angulartics2.firstPageview(true);
+		angulartics2.trackLocation(_location);
 	}
 
 	public isAtLocation (urlLoc: string): boolean {

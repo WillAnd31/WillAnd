@@ -34,7 +34,7 @@ export let Skills: Skill[] = [
 	new Skill(
 		'CPP',
 		'',
-		'http://nextproject.ca/psw/imgs/cplusplus.png',
+		'https://nextproject.ca/psw/imgs/cplusplus.png',
 		true
 	),
 	new Skill(
@@ -44,13 +44,13 @@ export let Skills: Skill[] = [
 	),
 	new Skill(
 		'IONIC',
-		'http://ionicframework.com/',
-		'http://ionicmaterialdesign.com/img/ionic.png'
+		'https://ionicframework.com/',
+		'https://ionicmaterialdesign.com/img/ionic.png'
 	),
 	new Skill(
 		'MONGODB',
 		'https://www.mongodb.com/',
-		'http://appv2.asustor.com/uploadIcons/0020_13878_1388394236_mongodb.png'
+		'https://appv2.asustor.com/uploadIcons/0020_13878_1388394236_mongodb.png'
 	),
 	new Skill(
 		'',
@@ -59,26 +59,26 @@ export let Skills: Skill[] = [
 	),
 	new Skill(
 		'GULP',
-		'http://gulpjs.com/',
+		'https://gulpjs.com/',
 		'https://worldvectorlogo.com/logos/gulp.svg',
 		true
 	),
 	new Skill(
 		'',
-		'http://php.net/',
+		'https://php.net/',
 		'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1280px-PHP-logo.svg.png',
 		true
 	),
 	new Skill(
 		'',
 		'https://jquery.com/',
-		'http://precision-software.com/wp-content/uploads/2014/04/jQurery.gif',
+		'https://precision-software.com/wp-content/uploads/2014/04/jQurery.gif',
 		true
 	),
 	new Skill(
 		'CSS3',
 		'',
-		'http://vignette2.wikia.nocookie.net/howtoprogram/images/a/a9/CSS3.png/revision/latest?cb=20130422012035'
+		'https://vignette2.wikia.nocookie.net/howtoprogram/images/a/a9/CSS3.png/revision/latest?cb=20130422012035'
 	),
 	new Skill(
 		'HTML5',
@@ -100,7 +100,7 @@ export let Skills: Skill[] = [
 	new Skill(
 		'LEARNER',
 		'',
-		'http://digitalis.nwp.org/sites/default/files/blogs/logo-new_0.png',
+		'https://digitalis.nwp.org/sites/default/files/blogs/logo-new_0.png',
 		true
 	)
 ];
