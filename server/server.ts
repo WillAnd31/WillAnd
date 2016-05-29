@@ -4,8 +4,7 @@ import LEX = require('letsencrypt-express');
 
 let app = express();
 
-app.use('/images', express.static(path.resolve(__dirname, '../client/images')));
-app.use('/fonts', express.static(path.resolve(__dirname, '../client/fonts')));
+app.use('/img', express.static(path.resolve(__dirname, '../client/images')));
 app.use('/lang', express.static(path.resolve(__dirname, '../client/lang')));
 app.use('/app', express.static(path.resolve(__dirname, '../dist')));
 app.use('/lib', express.static(path.resolve(__dirname, '../node_modules')));
