@@ -3,6 +3,12 @@
 .willand-resume {
 	padding-top: 3em;
 
+	.instructions {
+		opacity: 0.25;
+		text-align: center;
+		margin: 1em;
+	}
+
 	.intro {
 		width: 50%;
 		height: auto;
@@ -60,14 +66,18 @@
 			align-items: center;
 		}
 
-		&:last-child {
-			margin-bottom: 3em;
+		&.top {
+			margin-top: 0;
+		}
+
+		&.bottom {
+			margin-bottom: 8em;
 		}
 
 		.resume-section-title {
 			margin-right: 1em;
 			min-width: 5.5em;
-			width: 20%;
+			width: 15%;
 			text-align: right;
 			transition: 200ms;
 
@@ -153,11 +163,60 @@
 						}
 					}
 
+					&.award-item {
+						max-width: 50%;
+
+						@media (max-width: $mediumScreen) {
+							max-width: 90%;
+						}
+
+						.award-name {
+							text-align: center;
+						}
+
+						&:hover {
+							.award-desc {
+								display: block;
+								opacity: 1;
+								transform: scale(1);
+								position: relative;
+							}
+						}
+
+						.award-desc {
+							background-color: lighten($softGrey, 30);
+							padding: 1em 1em 1em 2em;
+							border-bottom-left-radius: 5px;
+							border-bottom-right-radius: 5px;
+							list-style-type: disc;
+							transition: 500ms;
+							position: absolute;
+							opacity: 0;
+							width: inherit;
+							transform: scale(0);
+
+							@media (max-width: $mediumScreen) {
+								position: relative;
+								transform: scale(1);
+								opacity: 1;
+							}
+						}
+					}
+
 					&.experience-item {
 						width: 19em;
 
+						@media (max-width: $mediumScreen) {
+							width: 90%;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							flex-direction: column;
+						}
+
 						.job-img {
 							width: inherit;
+							max-width: 25em;
 						}
 
 						.edu-img-container {
@@ -200,6 +259,7 @@
 							transform: scale(0);
 
 							@media (max-width: $mediumScreen) {
+								width: 100%;
 								position: relative;
 								transform: scale(1);
 								opacity: 1;
@@ -209,5 +269,12 @@
 				}
 			}
 		}
+	}
+
+	.footer {
+		width: 100%;
+		text-align: center;
+		background-color: lighten($softGrey, 20);
+		border-top: 2px solid $softGrey;
 	}
 }

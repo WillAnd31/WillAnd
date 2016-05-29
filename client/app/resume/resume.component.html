@@ -1,6 +1,5 @@
 <div class="willand-resume center column">
-	<p style="opacity: 0.2;">(Interactive resume, hover to see more details, click to go to relevant links)</p>
-	<div class="intro row">
+	<header class="intro row">
 		<div class="img-container">
 			<img src="/images/headshot.jpg" alt="Me">
 		</div>
@@ -14,8 +13,9 @@
 	" target="_blank">{{'LINKEDIN' | translate}}</a>
 			</div>
 		</div>
-	</div>
-	<div class="skills resume-section">
+	</header>
+	<p class="instructions">{{'INSTRUCTIONS' | translate}}</p>
+	<section class="skills resume-section top">
 		<h2 class="resume-section-title">{{'SKILLS' | translate}}</h2>
 		<div class="resume-section-content">
 			<ul class="resume-section-list">
@@ -27,8 +27,8 @@
 				</li>
 			</ul>
 		</div>
-	</div>
-	<div class="experience resume-section">
+	</section>
+	<section class="experience resume-section">
 		<h2 class="resume-section-title">{{'EXPERIENCE' | translate}}</h2>
 		<div class="resume-section-content">
 			<ul class="resume-section-list">
@@ -42,8 +42,8 @@
 				</li>
 			</ul>
 		</div>
-	</div>
-	<div class="education resume-section">
+	</section>
+	<section class="education resume-section">
 		<h2 class="resume-section-title">{{'EDUCATION' | translate}}</h2>
 		<div class="resume-section-content">
 			<ul class="resume-section-list">
@@ -58,41 +58,32 @@
 				</li>
 			</ul>
 		</div>
-	</div>
-	<div class="interests resume-section">
+	</section>
+	<section class="interests resume-section">
 		<h2 class="resume-section-title">{{'INTERESTS' | translate}}</h2>
 		<div class="resume-section-content">
-			<ul>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
+			<ul class="resume-section-list">
+				<li *ngFor="let int of interests" (click)="int?.link" [ngClass]="{hideOnSmall: skill?.hideOnSmall}" class="resume-section-list-item skill-item">
+					<div class="img-container">
+						<img [src]="int?.imgUrl" [alt]="int?.name | translate">
+					</div>
+					<p>{{int?.name | translate}}</p>
+				</li>
 			</ul>
 		</div>
-	</div>
-	<div class="awards resume-section">
+	</section>
+	<section class="awards resume-section bottom">
 		<h2 class="resume-section-title">{{'AWARDS' | translate}}</h2>
 		<div class="resume-section-content">
-			<ul>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
-				<li>somethins</li>
+			<ul class="resume-section-list">
+				<li *ngFor="let award of awards" class="resume-section-list-item award-item">
+					<h3 class="award-name">{{award?.name | translate}}</h3>
+					<p class="award-desc">{{award?.desc | translate}}</p>
+				</li>
 			</ul>
 		</div>
-	</div>
+	</section>
+	<footer class="footer">
+		<p>{{'FOOTER' | translate}} <a href="https://github.com/WillAnd31/WillAnd" target="_blank">{{'HERE' | translate}}</a></p>
+	</footer>
 </div>

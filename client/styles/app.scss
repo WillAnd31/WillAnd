@@ -7,7 +7,8 @@ html, body {
 	padding: 0;
 	font-family: 'Open Sans', sans-serif;
 	background-image: url('/images/fabric.png');
-	color: $softBlack;
+	background-color: lighten($softGrey, 30);
+	color: $darkish;
 }
 
 div, header, nav, ul, li {
