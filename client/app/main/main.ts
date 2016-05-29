@@ -66,8 +66,7 @@ export class WillAnd {
 		this.currentLang = (_.findIndex(this.supportedLangs, {iso: userLang}) > -1) ? _.find(this.supportedLangs, {iso: userLang}) : _.find(this.supportedLangs, {iso: 'en'});
 		translate.setDefaultLang('en');
 		translate.use(this.currentLang.iso);
-		angulartics2.firstPageview(true);
-		angulartics2.trackLocation(_location);
+		angulartics2GoogleAnalytics.pageTrack('/');
 	}
 
 	public isAtLocation (urlLoc: string): boolean {

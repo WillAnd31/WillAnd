@@ -3,11 +3,11 @@ import {Interest} from './../models/interest.model';
 export let Interests: Interest[] = [
 	new Interest(
 		'BE_WEB_DEV',
-		'https://jvzoohost.com/img/jvZoo-images/solutions-server.png'
+		'http://jvzoohost.com/img/jvZoo-images/solutions-server.png'
 	),
 	new Interest(
 		'FE_WEB_DEV',
-		'https://devcodecamp.com/wp-content/uploads/2016/05/html-css-js.png'
+		'http://devcodecamp.com/wp-content/uploads/2016/05/html-css-js.png'
 	),
 	new Interest(
 		'APPLE',
@@ -15,11 +15,11 @@ export let Interests: Interest[] = [
 	),
 	new Interest(
 		'IOS_DEV',
-		'https://retrocdn.net/images/thumb/f/f9/Logo-ios.svg/320px-Logo-ios.svg.png'
+		'http://retrocdn.net/images/thumb/f/f9/Logo-ios.svg/320px-Logo-ios.svg.png'
 	),
 	new Interest(
 		'SPACEX',
-		'https://iclothproducts.com/wp-content/uploads/2016/01/SpaceX-Logo-1024x261-1.png'
+		'http://iclothproducts.com/wp-content/uploads/2016/01/SpaceX-Logo-1024x261-1.png'
 	),
 	new Interest(
 		'TESLA',
@@ -47,6 +47,6 @@ export let Interests: Interest[] = [
 	),
 	new Interest(
 		'BOOKS',
-		'https://findicons.com/files/icons/490/mixed/512/book.png'
+		'http://findicons.com/files/icons/490/mixed/512/book.png'
 	)
 ];
