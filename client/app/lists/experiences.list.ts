@@ -6,7 +6,7 @@ export let Experiences: Experience[] = [
 		'SOFTWARE_ENGINEER',
 		5,
 		'NOVI_TIME',
-		'/img/novi.svg',
+		'https://s3-us-west-2.amazonaws.com/willand/images/novi.svg',
 		'http://novisecurity.com/'
 	),
 	new Experience(
