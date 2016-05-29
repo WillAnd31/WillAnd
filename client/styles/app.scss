@@ -102,8 +102,64 @@ input[type='text'], input[type='email'], input[type='password'] {
 	align-items: flex-end;
 }
 
+@keyframes pulse-diamond {
+	0% {
+		trasform: scale(0.8);
+		top: -3em;
+		left: 0;
+	}
+
+	13% {
+		top: -1.5em;
+		left: -1.5em;
+	}
+
+	25% {
+		top: 0;
+		left: -3em;
+	}
+
+	37% {
+		top: 1.5em;
+		left: -1.5em;
+	}
+
+	50% {
+		top: 3em;
+		transform: scale(1.5);
+		letter-spacing: 0.2em;
+	}
+
+	63% {
+		top: 1.5em;
+		left: 1.5em;
+	}
+
+	75% {
+		top: 0;
+		left: 3em;
+	}
+
+	87% {
+		top: -1.5em;
+		left: 1.5em;
+	}
+
+	100% {
+		top: -3em;
+		left: 0;
+		trasform: scale(0.8);
+	}
+}
+
 .loading {
-	i {
-		font-size: 10em;
+	color: $lightish;
+
+	h2 {
+		font-size: 3em;
+		animation-name: pulse-diamond;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-duration: 4s;
 	}
 }

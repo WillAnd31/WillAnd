@@ -30,6 +30,9 @@ var scssFiles = [
 var imageFiles = [
 	'./client/images/*'
 ];
+var langFiles = [
+	'./client/lang/*.json'
+];
 var htmlFiles = [
 	'./client/**/**/**/*.html',
 	'./client/**/**/*.html',
@@ -65,7 +68,7 @@ function serveTask () {
 function watchTask () {
 	gulp.watch(htmlFiles, ['html']);
 	gulp.watch(scssFiles, ['css']);
-	gulp.watch(clientTsFiles, ['build:client']);
+	gulp.watch(clientTsFiles.concat(langFiles), ['build:client']);
 }
 
 function cssTask () {

@@ -5,6 +5,8 @@ import {Skills} from './../lists/skills.list';
 import {Skill} from './../models/skill.model';
 import {Experiences} from './../lists/experiences.list';
 import {Experience} from './../models/experience.model';
+import {Educations} from './../lists/educations.list';
+import {Education} from './../models/education.model';
 
 let rootPath: string = 'app/app/resume/resume.component.';
 
@@ -18,11 +20,12 @@ let rootPath: string = 'app/app/resume/resume.component.';
 export class ResumeComponent {
 	public skills: Skill[];
 	public experiences: Experience[];
+	public educations: Education[];
 
 	constructor () {
 		this.skills = Skills;
 		this.experiences = Experiences;
-		console.log(Experiences);
+		this.educations = Educations;
 	}
 
 	public open (url: string) {

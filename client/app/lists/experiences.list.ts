@@ -4,8 +4,17 @@ export let Experiences: Experience[] = [
 	new Experience(
 		'NOVI',
 		'SOFTWARE_ENGINEER',
-		[],
-		'June 2015 - Present',
-		'http://novisecurity.com/images/novi-logo.png'
+		5,
+		'NOVI_TIME',
+		'/images/novi.svg',
+		'http://novisecurity.com/'
+	),
+	new Experience(
+		'AFO',
+		'DATA_TECHNICIAN',
+		3,
+		'AFO_TIME',
+		'http://static1.squarespace.com/static/56cb786b27d4bdfc9545482a/t/56db71c89f7266f8a103dc4f/1463762794439/?format=1500w',
+		'http://www.advancefiber.com/'
 	)
 ];

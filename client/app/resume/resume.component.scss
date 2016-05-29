@@ -69,6 +69,7 @@
 			min-width: 5.5em;
 			width: 20%;
 			text-align: right;
+			transition: 200ms;
 
 			@media (max-width: $mediumScreen) {
 				border-bottom: 4px solid $darkish;
@@ -88,7 +89,7 @@
 				width: 100%;
 			}
 
-			ul {
+			.resume-section-list {
 				list-style: none;
 				display: flex;
 				flex-direction: row;
@@ -104,11 +105,15 @@
 					justify-content: center;
 				}
 
-				li {
-					margin: 1em 2em 0;
+				.resume-section-list-item {
+					margin: 1em 1em 0;
 					cursor: pointer;
 					transition: 300ms;
 					transform: scale(0.9);
+
+					&:hover {
+						transform: scale(1);
+					}
 
 					&.hideOnSmall {
 						@media (max-width: $mediumScreen) {
@@ -116,36 +121,89 @@
 						}
 					}
 
-					.img-container {
-						height: 4em;
-						display: flex;
-						justify-content: center;
-						overflow: hidden;
-
-						&.rounded {
-							border-radius: 5px;
+					&.skill-item {
+						p {
+							opacity: 0;
+							transition: 500ms;
+							margin: 0;
+							text-align: center;
 						}
-
-						img {
-							height: inherit;
-						}
-					}
-
-					p {
-						margin: 0;
-						transition: 500ms;
-						text-align: center;
-						opacity: 0;
 
 						@media (max-width: $mediumScreen) {
-							opacity: 1;
+							p {
+								opacity: 1;
+							}
+						}
+
+						&:hover {
+							p {
+								opacity: 1;
+							}
+						}
+
+						.img-container {
+							height: 4em;
+							display: flex;
+							justify-content: center;
+							overflow: hidden;
+
+							img {
+								height: inherit;
+							}
 						}
 					}
 
-					&:hover {
-						transform: scale(1);
-						p {
-							opacity: 1;
+					&.experience-item {
+						width: 19em;
+
+						.job-img {
+							width: inherit;
+						}
+
+						.edu-img-container {
+							display: flex;
+							justify-content: center;
+
+							.edu-img {
+								height: 4em;
+								width: auto;
+							}
+						}
+
+						h2, p {
+							margin: 0;
+						}
+
+						.edu-header {
+							text-align: center;
+						}
+
+						&:hover {
+							.responsibilities-list {
+								display: block;
+								opacity: 1;
+								transform: scale(1);
+								position: relative;
+							}
+						}
+
+						.responsibilities-list {
+							background-color: lighten($softGrey, 30);
+							padding: 1em 1em 1em 2em;
+							border-bottom-left-radius: 5px;
+							border-bottom-right-radius: 5px;
+							list-style-type: disc;
+							transition: 500ms;
+							position: absolute;
+							opacity: 0;
+							width: inherit;
+							transform: scale(0);
+
+							@media (max-width: $mediumScreen) {
+								position: relative;
+								transform: scale(1);
+								opacity: 1;
+							}
 						}
 					}
 				}
