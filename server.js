@@ -16,8 +16,8 @@ app.get('/*', function (req, res) {
 
 if (process.env.NODE_ENV === 'production') {
 	const httpsServer = require('https').createServer({
-		key: fs.readFileSync('sslcert/server.key', 'utf8'),
-		cert: fs.readFileSync('sslcert/server.crt', 'utf8')
+		key: fs.readFileSync('/root/letsencrypt/etc/live/willand.co/privkey.pem'),
+		cert: fs.readFileSync('/root/letsencrypt/etc/live/willand.co/cert.pem')
 	}, app);
 
 	httpsServer.listen(SECURE);
