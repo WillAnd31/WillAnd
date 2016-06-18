@@ -20,5 +20,5 @@ Additional applications for production:
 ## How To Run Locally
 
 1. Download all the required resources: `npm install`
-1. Make sure that `./WillAnd/client/typings` and `./WillAnd/server/typings` directories were installed, if not: go to `./WillAnd/client` and `./WillAnd/server` and run `typings install`
+1. Make sure that `./WillAnd/typings` is installed, if not run: `typings install`
 1. Start the website on (localhost)[http://localhost:3000]: `npm start`
