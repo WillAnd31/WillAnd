@@ -1,7 +1,5 @@
-node_modules
+node_modules/
+typings/
+dist/
 *.DS_Store
-**/typings
-dist/*
-*.js
-*.js.map
-*.pem
+*.log

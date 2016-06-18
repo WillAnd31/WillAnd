@@ -13,3 +13,6 @@ $mediumScreen: 670px;
 $headerHeight: 7em;
 $headerHeightMedium: 5em;
 $headerHeightSmall: 3.5em;
+
+@import './../app/main/main.scss';
+@import './../app/resume/resume.component.scss';

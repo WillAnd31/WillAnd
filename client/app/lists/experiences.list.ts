@@ -6,7 +6,7 @@ export let Experiences: Experience[] = [
 		'SOFTWARE_ENGINEER',
 		5,
 		'NOVI_TIME',
-		'https://s3-us-west-2.amazonaws.com/willand/images/novi.svg',
+		require('./../../images/novi.svg'),
 		'http://novisecurity.com/'
 	),
 	new Experience(
@@ -14,7 +14,7 @@ export let Experiences: Experience[] = [
 		'DATA_TECHNICIAN',
 		3,
 		'AFO_TIME',
-		'http://static1.squarespace.com/static/56cb786b27d4bdfc9545482a/t/56db71c89f7266f8a103dc4f/1463762794439/?format=1500w',
+		require('./../../images/afo.png'),
 		'http://www.advancefiber.com/'
 	)
 ];

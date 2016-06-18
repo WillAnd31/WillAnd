@@ -6,9 +6,12 @@
 ## Required Applications
 
 1. Node/NPM ([how to download](https://nodejs.org/en/download/package-manager/))
-1. Gulp CLI (`npm install -g gulp-cli`)
+1. Webpack (`npm install -g webpack`)
 1. Typings (`npm install -g typings`)
-1. Nodemon (`npm install -g nodemon`)
+
+Additional applications for development:
+
+1. Webpack Dev Server (`npm install -g webpack-dev-server`)
 
 Additional applications for production:
 

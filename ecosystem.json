@@ -2,9 +2,9 @@
 	"apps": [
 		{
 			"name": "willand",
-			"script": "server/server.js",
+			"script": "server.js",
 			"env_staging": {
-				"NODE_ENV": "staging"
+				"NODE_ENV": "production"
 			}
 		}
 	]

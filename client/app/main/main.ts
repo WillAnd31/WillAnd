@@ -10,6 +10,7 @@ import {Routes, Route, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router} from '@angul
 import {LocationStrategy, HashLocationStrategy, Location, CORE_DIRECTIVES} from '@angular/common';
 import {Http, HTTP_PROVIDERS} from '@angular/http';
 import {TranslateService, TranslatePipe, TranslateLoader, TranslateStaticLoader} from 'ng2-translate/ng2-translate';
+import {CustomLoader} from './../utils/custom-translate-loader.class';
 
 // Analytics
 import {Angulartics2GoogleAnalytics} from 'angulartics2/src/providers/angulartics2-google-analytics';
@@ -20,9 +21,7 @@ import {ResumeComponent} from './../resume/resume.component';
 
 @Component({
 	selector: 'willand',
-	// templateUrl: root + 'html',
 	template: `<router-outlet></router-outlet>`,
-	styleUrls: [root + 'css'],
 	directives: [
 		ROUTER_DIRECTIVES,
 		CORE_DIRECTIVES,
@@ -31,8 +30,7 @@ import {ResumeComponent} from './../resume/resume.component';
 	providers: [
 		HTTP_PROVIDERS,
 		provide(TranslateLoader, {
-			useFactory: (http: Http) => new TranslateStaticLoader(http, 'lang', '.json'),
-			deps: [Http]
+			useClass: CustomLoader
 		}),
 		Angulartics2GoogleAnalytics,
 		TranslateService,
@@ -73,13 +71,3 @@ export class WillAnd {
 		return this._location.path().indexOf(urlLoc) > -1 && this._location.path().split('/').length === 2;
 	}
 }
-
-enableProdMode();
-bootstrap(WillAnd, [
-	ROUTER_PROVIDERS,
-	Angulartics2,
-	provide(LocationStrategy, {
-		useClass: HashLocationStrategy
-	})
-]);
-

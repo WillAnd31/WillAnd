@@ -15,8 +15,7 @@ let rootPath: string = 'app/app/resume/resume.component.';
 
 @Component({
 	selector: 'willand-resume',
-	templateUrl: rootPath + 'html',
-	styleUrls: [rootPath + 'css'],
+	template: require('./resume.component.html'),
 	pipes: [TranslatePipe]
 })
 export class ResumeComponent {
