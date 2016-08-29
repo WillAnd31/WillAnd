@@ -9,8 +9,7 @@
 			<div class="social-links">
 				<a href="https://github.com/willand31" target="_blank">{{'GITHUB' | translate}}</a>
 				<a href="https://twitter.com/willand31" target="_blank">{{'TWITTER' | translate}}</a>
-				<a href="https://www.linkedin.com/in/will-anderson-95515586
-	" target="_blank">{{'LINKEDIN' | translate}}</a>
+				<a href="https://www.linkedin.com/in/will-anderson-95515586" target="_blank">{{'LINKEDIN' | translate}}</a>
 			</div>
 		</div>
 	</header>
@@ -63,7 +62,7 @@
 		<h2 class="resume-section-title">{{'INTERESTS' | translate}}</h2>
 		<div class="resume-section-content">
 			<ul class="resume-section-list">
-				<li *ngFor="let int of interests" (click)="int?.link" [ngClass]="{hideOnSmall: skill?.hideOnSmall}" class="resume-section-list-item skill-item">
+				<li *ngFor="let int of interests" [ngClass]="{hideOnSmall: skill?.hideOnSmall}" class="resume-section-list-item skill-item">
 					<div class="img-container">
 						<img [src]="int?.imgUrl" [alt]="int?.name | translate">
 					</div>

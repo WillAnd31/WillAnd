@@ -1,8 +1,11 @@
 export class Interest {
+	public name: string;
+	public imgUrl: string;
+
 	constructor (
-		public name: string,
-		public imgUrl: string,
-		public link?: string,
-		public hideOnSmall?: boolean
-	) {}
+		data: any
+	) {
+		this.name = data.name;
+		this.imgUrl = data.imgUrl;
+	}
 }

@@ -1,29 +1,26 @@
-// This is to be used for production
-
-const express = require('express');
+const restify = require('restify');
 const path = require('path');
+const glob = require('glob');
 const fs = require('fs');
-const http = require('http');
-const SECURE = 443;
-const REGULAR = 80;
-const app = express();
 
-app.use('/dist', express.static(path.resolve(__dirname, './dist')));
+function serverSetup (serverSettings) {
+	let server = restify.createServer(serverSettings);
 
-app.get('/*', function (req, res) {
-	res.sendFile(path.resolve(__dirname, './dist/index.html'));
-});
+	server.get(/^\/(?!static)(?!.*\.).*$/, restify.serveStatic({
+		directory: './dist',
+		file: 'index.html'
+	}));
 
-if (process.env.NODE_ENV === 'production') {
-	const httpsServer = require('https').createServer({
-		key: fs.readFileSync('/root/letsencrypt/etc/live/willand.co/privkey.pem'),
-		cert: fs.readFileSync('/root/letsencrypt/etc/live/willand.co/cert.pem')
-	}, app);
+	server.get(/^\/(?!static).*\..*$/, restify.serveStatic({
+		directory: './dist'
+	}));
 
-	httpsServer.listen(SECURE);
-	console.log('Now listening on port: ' + SECURE);
-}
+	server.get(/^\/static.*\.json$/, restify.serveStatic({
+		directory: './client'
+	}));
 
-const httpServer = http.createServer(app);
-httpServer.listen(REGULAR);
-console.log('Now listening on port: ' + REGULAR);
+	return server;
+};
+
+console.log('Env: ' + process.env.NODE_ENV);
+require(`./config/server.${process.env.NODE_ENV}`).serverConfigs.forEach((serverConfig) => serverSetup(serverConfig.settings).listen(Number(serverConfig.port), () => console.log('Listening on port: ', serverConfig.port)));

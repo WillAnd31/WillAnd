@@ -1,11 +1,13 @@
 export class Award {
+	public name: string;
 	public desc: string;
+	public link: string;
 
 	constructor (
-		public name: string,
-		public link: string,
-		public image?: string
+		data: any
 	) {
-		this.desc = name + '_DESC';
+		this.name = data.key;
+		this.desc = data.key + '_DESC';
+		this.link = data.link;
 	}
 }

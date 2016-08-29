@@ -1,0 +1,18 @@
+[
+		{
+			"company": "NOVI",
+			"title": "SOFTWARE_ENGINEER",
+			"numOfResponsibilities": 5,
+			"length": "NOVI_TIME",
+			"logo": "/assets/novi.svg",
+			"link": "http://novisecurity.com/"
+		},
+		{
+			"company": "AFO",
+			"title": "DATA_TECHNICIAN",
+			"numOfResponsibilities": 3,
+			"length": "AFO_TIME",
+			"logo": "/assets/afo.png",
+			"link": "http://www.advancefiber.com/"
+		}
+]
