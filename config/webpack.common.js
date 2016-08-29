@@ -72,23 +72,7 @@ module.exports = {
 
 		new HtmlWebpackPlugin({
 			template: helpers.fromRoot('client/index.html'),
-			favicon: helpers.fromRoot('client/images/favicon.png'),
-			// chunksSortMode: function (a, b) {
-			// 	if (a.names[0] === 'common') {
-			// 		if (b.names[0] === 'polyfills' || b.names[0] === 'vendor' || b.names[0] === 'app') return -1;
-			// 	}
-			// 	if (a.names[0] === 'polyfills') {
-			// 		if (b.names[0] === 'common') return 1;
-			// 		if (b.names[0] === 'vendor' || b.names[0] === 'app') return -1;
-			// 	}
-			// 	if (a.names[0] === 'vendor') {
-			// 		if (b.names[0] === 'common' || b.names[0] === 'polyfills') return 1;
-			// 		if (b.names[0] === 'app') return -1;
-			// 	}
-			// 	if (a.names[0] === 'app') {
-			// 		if (b.names[0] === 'polyfills' || b.names[0] === 'vendor' || b.names[0] === 'common') return 1;
-			// 	}
-			// }
+			favicon: helpers.fromRoot('client/images/favicon.png')
 		})
 	]
 };

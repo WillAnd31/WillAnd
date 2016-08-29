@@ -3,8 +3,14 @@
 		{
 			"name": "willand",
 			"script": "server.js",
+			"env": {
+				"NODE_ENV": "dev"
+			},
 			"env_staging": {
-				"NODE_ENV": "production"
+				"NODE_ENV": "staging"
+			},
+			"env_prod": {
+				"NODE_ENV": "prod"
 			}
 		}
 	]
