@@ -6,11 +6,6 @@ const defaultPort = 3000;
 
 let server = restify.createServer();
 
-server.use((req, res, next) => {
-	console.log('req: ', req.url);
-	next();
-});
-
 server.get(/^\/(?!static)(?!.*\.).*$/, restify.serveStatic({
 	directory: './dist',
 	file: 'index.html'

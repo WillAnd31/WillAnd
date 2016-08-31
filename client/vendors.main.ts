@@ -9,4 +9,5 @@ import 'rxjs';
 
 // Other
 import 'lodash';
-// import 'ng2-translate/ng2-translate';
+import 'ng2-translate';
+// import 'angulartics2';

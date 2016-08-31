@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'obfuscation',
+	selector: 'willand-obfuscation',
 	templateUrl: 'obfuscation.component.html'
 })
 export class ObfuscationComponent implements OnInit {

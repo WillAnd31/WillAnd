@@ -12,12 +12,14 @@ import {
 } from 'ng2-translate';
 
 import { WillAnd } from './main.component';
+import { routing, components } from './main.routing';
 import { APIService } from './../utils/api.service';
 
 @NgModule({
 	imports: [
 		BrowserModule,
 		HttpModule,
+		routing,
 		TranslateModule.forRoot({
 			provide: TranslateLoader,
 			useFactory: (http: Http) => new TranslateStaticLoader(http, '/static', '.json'),
@@ -26,7 +28,8 @@ import { APIService } from './../utils/api.service';
 	],
 	bootstrap: [WillAnd],
 	declarations: [
-		WillAnd
+		WillAnd,
+		...components
 	],
 	providers: [
 		// Angulartics2GoogleAnalytics,
