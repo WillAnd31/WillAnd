@@ -124,7 +124,7 @@ module.exports = {
 			template: helpers.fromRoot('client/index.html'),
 			inject: 'body',
 			hash: true,
-			favicon: helpers.fromRoot('client/images/WillAndFavicon.svg'),
+			favicon: helpers.fromRoot('client/images/WillAndFavicon.png'),
 			chunksSortMode: function(a, b) {
 				var order = ['common', 'polyfills', 'vendor', 'app', 'styles'];
 				return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
