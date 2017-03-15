@@ -1,10 +1,11 @@
 const restify = require('restify');
-const path = require('path');
-const glob = require('glob');
-const fs = require('fs');
 const defaultPort = 3000;
 
 let server = restify.createServer();
+
+server.use(restify.CORS({
+	origins: ['https://willand.co', 'http://local.willand.co:3000']
+}));
 
 server.get(/^\/(?!static)(?!.*\.).*$/, restify.serveStatic({
 	directory: './dist',

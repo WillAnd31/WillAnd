@@ -1,27 +1,44 @@
 import * as _ from 'lodash';
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 
-import { Component } from '@angular/core';
-import { TranslateService } from 'ng2-translate/ng2-translate';
-
-// Analytics
-// import {Angulartics2GoogleAnalytics} from 'angulartics2/src/providers/angulartics2-google-analytics';
-// import {Angulartics2, Angulartics2On} from 'angulartics2';
+import { APIService } from './../utils/api.service';
+import { Award, Education, Experience, Interest, Skill } from './../models';
 
 @Component({
-	selector: 'willand',
-	template: '<router-outlet></router-outlet>',
-	directives: [
-		// Angulartics2On
-	]
+	selector: 'will-and',
+	templateUrl: 'main.component.html',
+	styleUrls: ['main.component.scss']
 })
-export class WillAnd {
+export class WillAndComponent implements OnInit {
 	constructor (
-		// private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
-		private translate: TranslateService
+		private translate: TranslateService,
+		private API: APIService
 	) {
-		// angulartics2GoogleAnalytics.pageTrack('/');
 		translate.setDefaultLang('en');
 		translate.use(navigator.language.split('-')[0]);
 	}
 
+	skills: Skill[];
+	experiences: Experience[];
+	education: Education[];
+	interests: Interest[];
+	awards: Award[];
+
+	ngOnInit() {
+		this.getData('skills', Skill);
+		this.getData('experiences', Experience);
+		this.getData('education', Education);
+		this.getData('interests', Interest);
+		this.getData('awards', Award);
+	}
+
+	getData<Type> (field, DataType: { new(info: any): Type }) {
+		this.API.GET(`/static/${field}.json`)
+			.then((dataList: any[]) => this[field] = _.map(dataList, data => new DataType(data)));
+	}
+
+	open (url: string) {
+		window.open(url, '_blank');
+	}
 }

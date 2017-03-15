@@ -1,16 +1,18 @@
+
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { WillAndModule } from './app/main/main.module';
+import { WillAndModule } from './app/app.module';
 
-require('./styles/global.scss');
-function requireAll (r) {
-	r.keys().forEach(r);
-}
-requireAll(require.context('./images/', true, /.*/));
+(req => req.keys().forEach(req))((require as any).context('./images/', true, /.*/));
 
-function bootstrapApp () {
+export function bootApp () {
 	if (ENV === 'prod') enableProdMode();
-	platformBrowserDynamic().bootstrapModule(WillAndModule);
+
+	console.time('Bootstrapped');
+
+	platformBrowserDynamic().bootstrapModule(WillAndModule)
+		.then(() => console.timeEnd('Bootstrapped'))
+		.catch(err => console.error('Error bootstrapping application: ', err));
 }
 
-window.onload = bootstrapApp;
+window.onload = bootApp;

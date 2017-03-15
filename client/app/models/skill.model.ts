@@ -1,8 +1,4 @@
 export class Skill {
-	public name: string;
-	public link: string;
-	public imgUrl: string;
-	public hideOnSmall: boolean;
 	constructor (
 		data: any
 	) {
@@ -11,4 +7,9 @@ export class Skill {
 		this.imgUrl = data.imgUrl;
 		this.hideOnSmall = !!data.hideOnSmall;
 	}
+
+	name: string;
+	link: string;
+	imgUrl: string;
+	hideOnSmall: boolean;
 }

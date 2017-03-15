@@ -1,14 +1,6 @@
 import * as _ from 'lodash';
 
 export class Experience {
-	public responsibilities: string[];
-		public company: string;
-		public title: string;
-		public numOfResponsibilities: number;
-		public length: string;
-		public logo: string;
-		public link: string;
-
 	constructor (
 		data: any
 	) {
@@ -22,4 +14,12 @@ export class Experience {
 		this.logo = data.logo;
 		this.link = data.link;
 	}
+
+	responsibilities: string[];
+	company: string;
+	title: string;
+	numOfResponsibilities: number;
+	length: string;
+	logo: string;
+	link: string;
 }

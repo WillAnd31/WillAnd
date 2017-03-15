@@ -1,8 +1,5 @@
-<div class="willand-resume center column">
+<div class="willand center column">
 	<header class="intro row">
-		<div class="img-container">
-			<img src="./../../../../images/headshot.jpg" alt="{{'WILL_ANDERSON' | translate}}">
-		</div>
 		<div class="contact-info">
 			<h1>{{'WILL_ANDERSON' | translate}}</h1>
 			<p><a href="mailto:will@willand.co">will@willand.co</a></p>
@@ -46,7 +43,7 @@
 		<h2 class="resume-section-title">{{'EDUCATION' | translate}}</h2>
 		<div class="resume-section-content">
 			<ul class="resume-section-list">
-				<li *ngFor="let edu of educations" class="resume-section-list-item experience-item education-item">
+				<li *ngFor="let edu of education" class="resume-section-list-item experience-item education-item">
 					<div class="edu-img-container">
 						<img class="edu-img" (click)="open(edu?.link)" [src]="edu?.logo" [alt]="edu?.school | translate">
 					</div>

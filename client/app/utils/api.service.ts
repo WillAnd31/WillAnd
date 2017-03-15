@@ -6,14 +6,21 @@ import { Observable } from 'rxjs';
 export class APIService {
 	constructor (
 		private http: Http
-	) {
-		this.endpoint = ENV === 'prod' ? 'https://willand.co' : 'http://localhost:3000';
+	) {}
+
+	endpoint = ENV === 'prod' ? 'https://willand.co' : 'http://localhost:3000';
+
+	GET (path: string) {
+		return this.http.get(this.endpoint + path)
+			.map(res => this.parseResponse(res)).toPromise()
+			.catch(err => Promise.reject(this.parseResponse(err)));
 	}
 
-	public endpoint: string;
-
-	public get (path: string): Observable<any> {
-		return this.http.get(this.endpoint + path)
-			.map((res) => res.json());
+	private parseResponse (res) {
+		try {
+			return res.json();
+		} catch (e) {
+			return res;
+		}
 	}
 }

@@ -7,16 +7,16 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"removeComments": true,
-		"noImplicitAny": false
+		"noImplicitAny": false,
+		"outDir": "dist",
+		"typeRoots": [
+			"./node_modules/@types",
+			"./custom-typings"
+		]
 	},
 	"exclude": [
-		"node_modules",
-		"typings/main",
-		"typings/main.d.ts"
+		"node_modules"
 	],
 	"compileOnSave": false,
-	"buildOnSave": false,
-	"types": [
-		"core-js"
-	]
+	"buildOnSave": false
 }

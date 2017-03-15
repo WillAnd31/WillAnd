@@ -1,8 +1,4 @@
 export class Award {
-	public name: string;
-	public desc: string;
-	public link: string;
-
 	constructor (
 		data: any
 	) {
@@ -10,4 +6,8 @@ export class Award {
 		this.desc = data.key + '_DESC';
 		this.link = data.link;
 	}
+
+	name: string;
+	desc: string;
+	link: string;
 }

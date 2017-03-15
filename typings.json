@@ -1,9 +1,0 @@
-{
-  "version": false,
-  "dependencies": {
-    "lodash": "registry:npm/lodash#4.0.0+20160416211519"
-  },
-  "globalDependencies": {
-    "core-js": "registry:dt/core-js#0.0.0+20160725163759"
-  }
-}
