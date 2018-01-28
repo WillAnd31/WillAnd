@@ -16,8 +16,8 @@
 		"imgUrl": "/assets/ios.png"
 	},
 	{
-		"name": "SPACEX",
-		"imgUrl": "/assets/spacex.png"
+		"name": "SPACE",
+		"imgUrl": "/assets/nasa-6.svg"
 	},
 	{
 		"name": "TESLA",
@@ -29,7 +29,7 @@
 	},
 	{
 		"name": "TV_SHOWS",
-		"imgUrl": "/assets/walking-dead.jpg"
+		"imgUrl": "/assets/got-logo.png"
 	},
 	{
 		"name": "PROGRAMMING",

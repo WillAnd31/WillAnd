@@ -90,7 +90,6 @@ module.exports = {
 		new webpack.LoaderOptionsPlugin({
 			options: {
 				context: helpers.fromRoot(''),
-				postcss: [precss(), autoprefixer()],
 				output: {
 						path: helpers.fromRoot('dist')
 				},

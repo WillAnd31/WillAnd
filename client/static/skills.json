@@ -41,6 +41,11 @@
 			"imgUrl": "/assets/swift.png"
 		},
 		{
+			"name": "OBJC",
+			"link": "",
+			"imgUrl": "/assets/Objective-c-logo.png"
+		},
+		{
 			"name": "IONIC",
 			"link": "http://ionicframework.com/",
 			"imgUrl": "/assets/ionic.png"

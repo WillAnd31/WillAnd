@@ -26,7 +26,7 @@
 	"PAYMENT_PROCESSORS": "Payment Processers",
 	"LEARNER": "Fast Learner",
 	"NOVI": "Novi Security",
-	"NOVI_TIME": "June 2015 - Present",
+	"NOVI_TIME": "June 2015 - October 2017",
 	"SOFTWARE_ENGINEER": "Software Engineer",
 	"NOVI_RES_1": "Develop and maintain multiple websites (Angular2, AngularJS, PHP, Wordpress)",
 	"NOVI_RES_2": "Develop and maintain a Ionic hybrid mobile application",
@@ -61,7 +61,7 @@
 	"FE_WEB_DEV": "Front-end Development",
 	"APPLE": "Everything Apple",
 	"IOS_DEV": "iOS Development",
-	"SPACEX": "Everything space related",
+	"SPACE": "Space",
 	"TESLA": "Inovative technology",
 	"TECH": "Technology in general",
 	"TV_SHOWS": "Every good TV series",
@@ -73,6 +73,12 @@
 	"NAT_AP_DESC": "Obtaining a score of 4 or more on several AP exams (AP Calculus, AP Physics, AP United States History, and AP Statistics).",
 	"AAS": "Academic All-State",
 	"AAS_DESC": "Having one of the highest GPAs the the state of Utah for all football players.",
-	"FOOTER":  "This website was built using Angular2, checkout the source code",
-	"HERE": "here"
+	"FOOTER": "This website was built using Angular2, checkout the source code",
+	"HERE": "here",
+	"VIVINT": "Vivint Smart Home",
+	"VIVINT_TIME": "October 2017 - Present",
+	"VIVINT_RES_1": "Develop and maintain iOS app features",
+	"VIVINT_RES_2": "Collaborate with product team to define and design new features",
+	"VIVINT_RES_3": "Help maintain code quality.",
+	"OBJC": "Objective C"
 }
